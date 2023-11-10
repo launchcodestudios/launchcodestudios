@@ -43,10 +43,16 @@ body {
 	fill: var(--near-white);
 }
 .services-list .icon-circle {
-	background: var(--light-red);
+	background: var(--green);
 	margin-right: .5rem;
 	padding: 2px;
 	height: 16px;
 	width: 16px;
 	transform: translate3d(0,2px,0);
+}
+
+.wwo-section svg {
+	fill: var(--dark-blue);
+	width: 4rem;
+	height: auto;
 }
