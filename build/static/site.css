@@ -1,3 +1,7 @@
+:root {
+	--button-static: #e0aaff;
+}
+
 html, body {
 	position: relative;
 	height: 100%;
@@ -7,7 +11,42 @@ body {
 	margin: 0;
 }
 
+
 .grid-max-center {
 	max-width: 90rem;
 	margin: 0 auto;
+}
+
+.services-list {
+	column-count: 1;
+}
+@media screen and (min-width: 30em) {
+	.services-list {
+		column-gap: 2rem;
+		column-count: 2;
+	}
+}
+@media screen and (min-width: 60em) {
+	.services-list {
+		column-gap: 2rem;
+		column-count: 3;
+	}
+}
+
+.hover-b--light-green:focus,
+.hover-b--light-green:hover {
+	border-color: var(--light-green);
+}
+
+
+.services-list .icon {
+	fill: var(--near-white);
+}
+.services-list .icon-circle {
+	background: var(--light-red);
+	margin-right: .5rem;
+	padding: 2px;
+	height: 16px;
+	width: 16px;
+	transform: translate3d(0,2px,0);
 }

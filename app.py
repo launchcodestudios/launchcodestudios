@@ -22,7 +22,20 @@ ENV = Environment(loader=PackageLoader('app'))
 @app.route('/')
 def home():
 	fileName = 'index.html'
-	generateFile(ENV, fileName, {})
+	generateFile(ENV, fileName, {
+		'services': [
+			'UI/UX design',
+			'Code scaffolding',
+			'Design systems',
+			'Front-end and back-end (full-stack) custom web development',
+			'Quality assurance and testing (QA)',
+			'Performance testing',
+			'Search engine optimization (SEO)',
+			'Accessibility (WCAG validation)',
+			'ePrivacy and cookie consent',
+			'Web metrics',
+		]
+	})
 	return send_from_directory('build', fileName)
 	
 	
