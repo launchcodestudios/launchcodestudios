@@ -17,8 +17,17 @@ body {
 	margin: 0 auto;
 }
 
+
+.hover-b--light-green:focus,
+.hover-b--light-green:hover {
+	border-color: var(--light-green);
+}
+
 .services-list {
 	column-count: 1;
+}
+.services-list div {
+	break-inside: avoid-column;
 }
 @media screen and (min-width: 30em) {
 	.services-list {
@@ -33,21 +42,12 @@ body {
 	}
 }
 
-.hover-b--light-green:focus,
-.hover-b--light-green:hover {
-	border-color: var(--light-green);
-}
-
-
-.services-list .icon {
-	fill: var(--near-white);
-}
 .services-list .icon-circle {
 	background: var(--green);
 	margin-right: .5rem;
 	padding: 2px;
-	height: 16px;
-	width: 16px;
+	height: 22px;
+	width: 22px;
 	transform: translate3d(0,2px,0);
 }
 
