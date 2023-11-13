@@ -67,3 +67,48 @@ h1 {
 .left-col-heading {
 	flex: 0 0 182px;
 }
+
+.cls-1, .cls-2, .cls-3, .cls-4 {
+	stroke: var(--near-white);
+	stroke-miterlimit: 10;
+	stroke-width: 1.7px;
+}
+.cls-5, .cls-6 {
+	stroke-width: 0px;
+}
+
+
+.dark-logo .cls-1 {
+	fill: var(--gray);
+}
+.dark-logo .cls-2 {
+	fill: var(--near-black);
+}
+.dark-logo .cls-3 {
+	fill: var(--gold);
+}
+.dark-logo .cls-5 {
+	fill: var(--silver);
+}
+.dark-logo .cls-6 {
+	fill: var(--near-white);
+	transform: translate3d(2.3px,0,0);
+}
+.dark-logo g {
+	transform: translate3d(0,0.2px,0);
+}
+
+
+.dark-logo {
+	animation: dotcolors 20s infinite;
+}
+
+@keyframes dotcolors {
+	0%, 100%  {
+		fill: red;
+	}
+	30% {
+		fill: blue;
+	}
+}
+	
