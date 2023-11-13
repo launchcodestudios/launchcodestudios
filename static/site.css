@@ -11,12 +11,19 @@ body {
 	margin: 0;
 }
 
+h1 {
+	height: 0;
+	visibility: hidden;
+}
 
 .grid-max-center {
 	max-width: 90rem;
 	margin: 0 auto;
 }
 
+.logopad {
+	padding-left: 6.8rem;
+}
 
 .hover-b--light-green:focus,
 .hover-b--light-green:hover {
