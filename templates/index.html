@@ -24,6 +24,7 @@
 		
 		<title>Launchcode Studios</title>
 		
+		<script src="static/micromodal.min.js"></script>
 		<link href="static/tachyons.min.css" rel="stylesheet">
 		<link href="static/bloodline.min.css" rel="stylesheet">
 		<link href="static/site.css" rel="stylesheet">
@@ -50,7 +51,7 @@
 			
 						<div class="mt4 mb4 near-white lh-copy mw7">We are passionate and pragmatic developers focused on helping secure funding for startups and increasing revenue for small businesses. Crafting designs and features that wow investors and keep users hooked is what we do. Our web solutions? Totally scalable, low maintenance, and locked up tight. Whether you're after a sleek static site or a full-blown data-driven app, we've got you covered.</div>
 					
-						<div><button class="b--green ba bg-green bl-animate-all br2 bw1 dib hover-b--light-green hover-bg-light-green hover-black ph3 pointer pv2 white">Get in touch</button></div>
+						<div><button onclick="MicroModal.show('modal-contact');return false;" class="b--green ba bg-green bl-animate-all br2 bw1 dib hover-b--light-green hover-bg-light-green hover-black ph3 pointer pv2 white">Get in touch</button></div>
 					</div>
 				</div>
 			</div>
@@ -164,7 +165,7 @@
 					<div class="mw7">
 						<div class="lh-copy">Whether you're ready to put our expertise to work, have some questions, or just want to chat about possible solutions, contact us! Don't worry, we're all about quick responses and we'll get back to you ASAP.</div>
 						
-						<div class="mt4"><button class="b--green ba bg-green bl-animate-all br2 bw1 dib hover-b--light-green hover-bg-light-green hover-black ph3 pointer pv2 white">Get in touch</button></div>
+						<div class="mt4"><button onclick="MicroModal.show('modal-contact');return false;" class="b--green ba bg-green bl-animate-all br2 bw1 dib hover-b--light-green hover-bg-light-green hover-black ph3 pointer pv2 white">Get in touch</button></div>
 					</div>
 				</div>
 				
@@ -174,6 +175,64 @@
 		<footer class="white w-100 ph3 ph4-ns bg-black fw3">
 			<div class="pv3 db f6">&copy; 2023 Launchcode Studios, LLC</div>
 		</footer>
+		
+		<div class="bl-modal" id="modal-contact" aria-hidden="true">
+			<div class="bl-modal-overlay fixed flex justify-center items-center bg-black-60 top-0 right-0 bottom-0 left-0" tabindex="-1" data-micromodal-close>
+				<div class="f5 bl-modal-container w-90 mw6 bg-white pv3 ph4" role="dialog" aria-modal="true">
+					<header class="tr">
+						<button class="mt2 bl-modal-close pointer h2 ba br2 ph2 b--blue blue bg-white hover-bg-blue hover-white" aria-label="Close modal" data-micromodal-close></button>
+					</header>
+					
+					<div class="f3 b mb4">Contact us</div>
+					
+					<div id="contact-thankyou" class="mb4 dn">Thank you, your message has been sent</div>
+					
+					<form id="contact-form" class="inputs-fw3 disable-submit-until-valid" action="" method="post">
+						<label class="db mb3">
+							<span class="bl-field-required db mb1">Name</span>
+							<input type="text" required name="un" class="db">
+						</label>
+						<label class="db mb3">
+							<span class="bl-field-required db mb1">Email</span>
+							<input type="email" required name="ue" class="db">
+						</label>
+						<label class="db mb3">
+							<span class="bl-field-required db mb1">Message</span>
+							<textarea name="msg" required class="db" rows="5"></textarea>
+						</label>
+						<button type="submit" class="mv3 b--blue ba bg-blue bl-animate-all br2 bw1 dib hover-b--dark-blue hover-bg-dark-blue white hover-white ph3 pointer pv2">Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			(function(){
+				function toggleFormThankyou () {
+					document.getElementById("contact-form").reset();
+					document.getElementById("contact-form").classList.toggle('dn');
+					document.getElementById("contact-thankyou").classList.toggle('dn');
+				}
+				
+				function sendForm (ev) {
+					ev.preventDefault();
+					const data = new URLSearchParams();
+					for (const pair of new FormData(document.getElementById('contact-form'))) {
+						data.append(pair[0], pair[1]);
+					}
+					fetch('https://tjh0kpqu8k.execute-api.us-east-1.amazonaws.com/default/cfse', {
+						method: 'post',
+						mode: 'no-cors',
+						body: data,
+						headers: {'Content-type': 'application/json;charset=UTF-8'}
+					});
+					toggleFormThankyou();
+					setTimeout(toggleFormThankyou, 4000);
+				}
+				document.getElementById('contact-form').addEventListener('submit', sendForm);
+			})();
+		</script>
+
 	</body>
 </html>
 
