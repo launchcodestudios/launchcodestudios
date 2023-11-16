@@ -16,73 +16,40 @@ h1 {
 	visibility: hidden;
 }
 
+
+.hover-b--near-black:focus,
+.hover-b--near-black:hover {
+	border-color: var(--near-black);
+}
+
+
+/* Layout */
 .grid-max-center {
 	max-width: 90rem;
 	margin: 0 auto;
 }
 
-.logopad {
-	padding-left: 6.8rem;
-}
-
-.hover-b--light-green:focus,
-.hover-b--light-green:hover {
-	border-color: var(--light-green);
-}
-
-.services-list {
-	column-count: 1;
-}
-.services-list div {
-	break-inside: avoid-column;
-}
-@media screen and (min-width: 30em) {
-	.services-list {
-		column-gap: 2rem;
-		column-count: 2;
-	}
-}
-@media screen and (min-width: 60em) {
-	.services-list {
-		column-gap: 2rem;
-		column-count: 3;
-	}
-}
-
-.services-list .icon {
-	width: 15px;
-	transform: translate3d(0px,0,0);
-}
-
-.services-list .icon-circle {
-	background: var(--green);
-	margin-right: .5rem;
-	padding: 2px;
-	height: 20px;
-	width: 20px;
-	transform: translate3d(0,2px,0);
-}
-
-.wwo-section svg {
-	fill: var(--dark-blue);
-	width: 4rem;
-	height: auto;
+.logo-container {
+	max-width: 640px;
 }
 
 .left-col-heading {
-	flex: 0 0 182px;
+	flex: 0 0 calc(143px + 3rem);
 }
 
-.cls-1, .cls-2, .cls-3, .cls-4 {
+
+/* Logo */
+.logopad {
+	padding-left: 6.8rem;
+}
+.dark-logo .cls-1, .dark-logo .cls-2, .dark-logo .cls-3, .dark-logo .cls-4 {
 	stroke: var(--near-white);
 	stroke-miterlimit: 10;
 	stroke-width: 1.7px;
 }
-.cls-5, .cls-6 {
+.dark-logo .cls-5, .dark-logo .cls-6 {
 	stroke-width: 0px;
 }
-
-
 .dark-logo .cls-1 {
 	fill: var(--gray);
 }
@@ -104,16 +71,45 @@ h1 {
 }
 
 
-.dark-logo {
-	animation: dotcolors 20s infinite;
+/* Who we are services */
+.services-list {
+	column-count: 1;
+}
+.services-list div {
+	break-inside: avoid-column;
+}
+@media screen and (min-width: 30em) {
+	.services-list {
+		column-gap: 2rem;
+		column-count: 2;
+	}
+}
+@media screen and (min-width: 60em) {
+	.services-list {
+		column-gap: 2rem;
+		column-count: 3;
+	}
 }
 
-@keyframes dotcolors {
-	0%, 100%  {
-		fill: red;
-	}
-	30% {
-		fill: blue;
-	}
+.services-list .icon-circle {
+	background: var(--gold);
+	margin-right: .5rem;
+	padding: 2px;
+	height: 22px;
+	width: 22px;
+	transform: translate3d(0,3px,0);
 }
-	
+
+.services-list .icon {
+	fill: var(near-black);
+	width: 20px;
+	transform: translate3d(1px,0px,0);
+}
+
+
+/* What we offer section pictograms */
+.wwo-section svg {
+	fill: var(--dark-blue);
+	width: 4rem;
+	height: auto;
+}
