@@ -39,6 +39,13 @@ def home():
 	return send_from_directory('build', fileName)
 	
 	
+@app.route('/sitemap.txt')
+def sitemap():
+	fileName = 'sitemap.txt'
+	generateFile(ENV, fileName, {})
+	return send_from_directory('build', fileName)
+		
+	
 # Only used for dev. Prod is served as flat files from /build/.
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 5000))
